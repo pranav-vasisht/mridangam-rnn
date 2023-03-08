@@ -66,6 +66,7 @@ print(rnn)
 
 # Initialize hidden state
 hidden = rnn.initHidden()
+print("initHidden done")
 
 # Generate a prior sequence of inputs
 prior_sequence = 'This is a test sequence'
