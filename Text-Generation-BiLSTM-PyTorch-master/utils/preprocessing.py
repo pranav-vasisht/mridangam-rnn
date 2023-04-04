@@ -19,15 +19,18 @@ class Preprocessing:
 		# Create a string which contains the entire text
 		text_string = ''
 		for line in raw_text:
-			text_string += line.strip()
-		
-		# Create an array by char
-		text = list()
-		for char in text_string:
-			text.append(char)
+			text_string += line
+		text_string = re.sub(r'\d+:', ' ', text_string)
+		text_string = re.sub(r'\s+', ' ', text_string)
+		text = text_string.split(' ')
+
+		# # Create an array by char
+		# text = list()
+		# for char in text_string:
+		# 	text.append(char)
 	
-		# Remove all symbosl and just keep letters
-		text = [char for char in text if char in letters]
+		# # Remove all symbosl and just keep letters
+		# text = [char for char in text if char in letters]
 	
 		return text
 		
@@ -36,7 +39,7 @@ class Preprocessing:
 		
 		char_to_idx = dict()
 		idx_to_char = dict()
-		
+
 		idx = 0
 		for char in text:
 			if char not in char_to_idx.keys():
@@ -76,4 +79,3 @@ class Preprocessing:
 		y = np.array(y)
 		
 		return x, y
-		
