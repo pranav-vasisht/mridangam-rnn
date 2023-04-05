@@ -110,7 +110,7 @@ class Execution:
 		
 		# By making use of the dictionaries, it is printed the pattern
 		print("\nPattern: \n")
-		print(''.join([idx_to_char[value] for value in pattern]), "\"")
+		print(' '.join([idx_to_char[value] for value in pattern]), "\"")
 		
 		# In full_prediction we will save the complete prediction
 		full_prediction = pattern.copy()
@@ -144,7 +144,7 @@ class Execution:
 			full_prediction = np.append(full_prediction, arg_max)
 			
 		print("Prediction: \n")
-		print(''.join([idx_to_char[value] for value in full_prediction]), "\"")
+		print(' '.join([idx_to_char[value] for value in full_prediction]), "\"")
 
 if __name__ == '__main__':
 	
