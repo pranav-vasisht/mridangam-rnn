@@ -9,17 +9,41 @@ class Preprocessing:
 		letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m',
 					'n','o','p','q','r','s','t','u','v','w','x','y','z',' ']
 		
+		# Open raw file
+    # text = []
+
 		text = []
 		with open(file, 'r') as f:
 			for line in f:
 				line = line.lower()
 				line = re.sub(r'\d+:', ' ', line)
 				line = re.sub(r'\s+', ' ', line)
+				line.strip()
 				line = line.strip()
 				if line == '':
 					continue
 				text += line.split(' ')
 				text += ['\n']
+			# raw_text = f.readlines()
+			
+		# # Transform each line into lower
+		# raw_text = [line.lower() for line in raw_text]
+		
+		# # Create a string which contains the entire text
+		# text_string = ''
+		# for line in raw_text:
+		# 	text_string += line
+		# text_string = re.sub(r'\d+:', ' ', text_string)
+		# text_string = re.sub(r'\s+', ' ', text_string)
+		# text = text_string.split(' ')
+
+		# # Create an array by char
+		# text = list()
+		# for char in text_string:
+		# 	text.append(char)
+	
+		# # Remove all symbosl and just keep letters
+		# text = [char for char in text if char in letters]
 	
 		return text
 		
@@ -68,3 +92,21 @@ class Preprocessing:
 		y = np.array(y)
 		
 		return x, y
+
+
+if __name__ == '__main__':
+  
+  # Read dataset
+  text = Preprocessing.read_dataset('../data/mridangam.txt')
+  
+  print(text)
+  # Create dictionary
+  char_to_idx, idx_to_char = Preprocessing.create_dictionary(text)
+  
+  print(char_to_idx)
+  print(idx_to_char)
+  # Build sequences and targets
+  x, y = Preprocessing.build_sequences_target(text, char_to_idx, 10)
+  
+  print(x)
+  print(y)
