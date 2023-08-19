@@ -1,7 +1,7 @@
 # mridangam-rnn
 # Mridangam Notation Text Generation with Bi-LSTMs in PyTorch
 
-This repository presents a model for text generation using Bi-LSTM and LSTM recurrent neural networks. The model is implemented using PyTorch's LSTMCells. 
+This repository presents a model for text generation using recurrent neural networks. The model is implemented using PyTorch's LSTMCells. 
 
 If you want to delve into the details regarding how the text was pre-processed, how the sequences were generated, how the Bi-LSTM & LSTM were built from the LSTMCells and how the model was trained, I highly recommend reading the blog:
 <a href="https://medium.com/@fer.neutron/text-generation-with-bi-lstm-in-pytorch-5fda6e7cc22c?source=friends_link&sk=5c18f546434e6697c1a33ffa7bd3d22b">Text Generation with Bi-LSTM in PyTorch</a>
